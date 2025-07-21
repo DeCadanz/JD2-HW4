@@ -10,7 +10,7 @@
     
     <servlet>
 		<servlet-name>SignUp</servlet-name>
-		<jsp-file>/template/signup.jsp</jsp-file>
+		<jsp-file>/WEB-INF/ui/signup.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>SignUp</servlet-name>
@@ -19,7 +19,7 @@
 	
 	<servlet>
 		<servlet-name>SignIn</servlet-name>
-		<jsp-file>/template/signin.jsp</jsp-file>
+		<jsp-file>/WEB-INF/ui/signin.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>SignIn</servlet-name>
@@ -28,7 +28,7 @@
 	
     <servlet>
 		<servlet-name>Message</servlet-name>
-		<jsp-file>/template/sendmessage.jsp</jsp-file>
+		<jsp-file>/WEB-INF/ui/sendmessage.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Message</servlet-name>

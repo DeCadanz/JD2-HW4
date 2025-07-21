@@ -30,7 +30,7 @@ public class LoginServlet extends HttpServlet {
             String error = service.authenticate(login, password);
             if (error != "") {
                 req.setAttribute("error", error);
-                req.getRequestDispatcher("/template/signin.jsp").forward(req, resp);
+                req.getRequestDispatcher("/WEB-INF/ui/signin.jsp").forward(req, resp);
             } else {
                 HttpSession session = req.getSession();
                 session.setAttribute("user", storage.get(login));

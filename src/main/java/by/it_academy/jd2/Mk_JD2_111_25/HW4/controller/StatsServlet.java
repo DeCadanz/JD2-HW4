@@ -30,6 +30,6 @@ public class StatsServlet extends HttpServlet {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        req.getRequestDispatcher("/template/statistics.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/ui/statistics.jsp").forward(req, resp);
     }
 }

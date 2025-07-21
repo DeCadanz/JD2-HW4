@@ -43,7 +43,7 @@ public class MessageServlet extends HttpServlet {
         try {
             if (storage.get(recipient) == null) {
                 req.setAttribute("error", "Пользователь не найден!");
-                req.getRequestDispatcher("/template/sendmessage.jsp").forward(req, resp);
+                req.getRequestDispatcher("/WEB-INF/ui/sendmessage.jsp").forward(req, resp);
             } else {
                 Message message = new Message();
                 message.setSender(sender);
@@ -54,7 +54,7 @@ public class MessageServlet extends HttpServlet {
                 try {
                     mstorage.add(message);
                     req.setAttribute("error", "Успешно отправлено!");
-                    req.getRequestDispatcher("/template/sendmessage.jsp").forward(req, resp);
+                    req.getRequestDispatcher("/WEB-INF/ui/sendmessage.jsp").forward(req, resp);
                 } catch (ClassNotFoundException | SQLException e) {
                     throw new RuntimeException(e);
                 }
@@ -80,6 +80,6 @@ public class MessageServlet extends HttpServlet {
 
         req.setAttribute("user", user.getLogin());
         req.setAttribute("mList", mList);
-        req.getRequestDispatcher("/template/messages.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/ui/messages.jsp").forward(req, resp);
     }
 }

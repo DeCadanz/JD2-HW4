@@ -33,7 +33,7 @@ public class RegServlet extends HttpServlet {
 
             if(error != "") {
                 req.setAttribute("error", error);
-                req.getRequestDispatcher("/template/signup.jsp").forward(req, resp);
+                req.getRequestDispatcher("/WEB-INF/ui/signup.jsp").forward(req, resp);
             } else {
                 resp.sendRedirect(req.getContextPath().concat("/ui/signIn"));
             }
