@@ -2,11 +2,10 @@ package by.it_academy.jd2.Mk_JD2_111_25.HW4.service;
 
 import by.it_academy.jd2.Mk_JD2_111_25.HW4.core.ContextFactory;
 import by.it_academy.jd2.Mk_JD2_111_25.HW4.core.dto.User;
+import by.it_academy.jd2.Mk_JD2_111_25.HW4.service.api.ICryptoService;
 import by.it_academy.jd2.Mk_JD2_111_25.HW4.service.api.IUserService;
 import by.it_academy.jd2.Mk_JD2_111_25.HW4.storage.api.IUserStorage;
 
-import java.io.UnsupportedEncodingException;
-import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
 
 
@@ -29,7 +28,7 @@ public class UserService implements IUserService {
 
     @Override
     public String authenticate(String login, String password) {
-        CryptoService crypto = new CryptoService();
+       ICryptoService crypto = new CryptoService();
 
         if (storage.get(login) == null) {
             return "Пользователь не найден!";

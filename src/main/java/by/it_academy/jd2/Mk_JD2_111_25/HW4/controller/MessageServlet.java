@@ -15,6 +15,7 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
+//@WebServlet(urlPatterns = {"/api/message"})
 @WebServlet(urlPatterns = {"/api/message", "/ui/user/chats"})
 public class MessageServlet extends HttpServlet {
 

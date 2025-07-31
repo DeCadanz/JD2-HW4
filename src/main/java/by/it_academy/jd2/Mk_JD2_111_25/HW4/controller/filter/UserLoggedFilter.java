@@ -8,8 +8,8 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-@WebFilter(urlPatterns = {"/ui/user/*", "/api/message"})
-public class UserSecurityFilter implements Filter {
+@WebFilter(urlPatterns = {"/", "/ui"})
+public class UserLoggedFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response,
                          FilterChain chain) throws IOException, ServletException {
@@ -18,9 +18,10 @@ public class UserSecurityFilter implements Filter {
         String contextPath = req.getContextPath();
         HttpSession session = req.getSession();
         if ((session != null) && (session.getAttribute("user") != null)) {
-            chain.doFilter(request, response);
+            res.sendRedirect(contextPath + "/ui/user/chats");
         } else {
-            res.sendRedirect(contextPath + "/ui/signIn");
+
+            chain.doFilter(request, response);
         }
     }
 }

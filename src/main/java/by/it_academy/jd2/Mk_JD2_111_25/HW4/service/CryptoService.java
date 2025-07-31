@@ -1,10 +1,13 @@
 package by.it_academy.jd2.Mk_JD2_111_25.HW4.service;
 
+import by.it_academy.jd2.Mk_JD2_111_25.HW4.service.api.ICryptoService;
+
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class CryptoService {
+public class CryptoService implements ICryptoService {
+
     public String doCrypt(String password) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");

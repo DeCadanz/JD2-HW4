@@ -13,7 +13,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet("/api/admin/statistics")
+//@WebServlet("/api/admin/statistics")
+@WebServlet(urlPatterns = {"/api/admin/statistics", "/ui/admin/statistics"})
 public class StatsServlet extends HttpServlet {
     private final IUserService uService = ContextFactory.getBean(IUserService.class);
     private final IMessageService mService = ContextFactory.getBean(IMessageService.class);
