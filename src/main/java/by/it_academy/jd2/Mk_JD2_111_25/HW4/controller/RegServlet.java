@@ -11,7 +11,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -24,19 +23,14 @@ public class RegServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         CryptoService crypto = new CryptoService();
 
-        String error = null;
-        try {
-            error = service.add(User.builder()
-                    .login(req.getParameter("login"))
-                    .password(crypto.doCrypt(req.getParameter("password")))
-                    .fullName(req.getParameter("fullname"))
-                    .birthDate(LocalDate.parse(req.getParameter("birth")))
-                    .regDate(LocalDateTime.now())
-                    .role_id(3)
-                    .build());
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }
+        String error = service.add(User.builder()
+                .login(req.getParameter("login"))
+                .password(crypto.doCrypt(req.getParameter("password")))
+                .fullName(req.getParameter("fullname"))
+                .birthDate(LocalDate.parse(req.getParameter("birth")))
+                .regDate(LocalDateTime.now())
+                .role_id(3)
+                .build());
 
         if (error != "") {
             req.setAttribute("error", error);
@@ -44,6 +38,5 @@ public class RegServlet extends HttpServlet {
         } else {
             resp.sendRedirect(req.getContextPath().concat("/ui/signIn"));
         }
-
     }
 }

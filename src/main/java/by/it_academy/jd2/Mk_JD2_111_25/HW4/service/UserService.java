@@ -35,14 +35,10 @@ public class UserService implements IUserService {
             return "Пользователь не найден!";
         }
 
-        try {
-            if (!Objects.equals(crypto.doCrypt(password), storage.get(login).getPassword())) {
-                return "Неверный пароль!";
-            } else {
-                return "";
-            }
-        } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
-            throw new RuntimeException(e);
+        if (!Objects.equals(crypto.doCrypt(password), storage.get(login).getPassword())) {
+            return "Неверный пароль!";
+        } else {
+            return "";
         }
     }
 

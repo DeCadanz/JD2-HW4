@@ -1,4 +1,5 @@
 package by.it_academy.jd2.Mk_JD2_111_25.HW4.service.api;
+
 import by.it_academy.jd2.Mk_JD2_111_25.HW4.core.dto.User;
 
 public interface IUserService {

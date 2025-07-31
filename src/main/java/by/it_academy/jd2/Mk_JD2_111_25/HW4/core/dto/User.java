@@ -85,6 +85,7 @@ public class User {
             this.role_id = role_id;
             return this;
         }
+
         public User build() {
             return new User(login, password, fullName, birthDate, regDate, role_id);
         }

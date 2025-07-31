@@ -7,7 +7,6 @@ public class ContextFactory {
     private static final ApplicationContext context =
             new ClassPathXmlApplicationContext("context.xml");
 
-
     public static <T> T getBean(Class<T> requiredType) {
         return context.getBean(requiredType);
     }

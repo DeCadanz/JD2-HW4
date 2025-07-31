@@ -55,6 +55,7 @@ public class Message {
             this.recipient = recipient;
             return this;
         }
+
         public Builder text(String text) {
             this.text = text;
             return this;
