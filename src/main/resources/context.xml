@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="org.postgresql.Driver"/>
+        <property name="jdbcUrl" value="jdbc:postgresql://localhost:5432/messenger"/>
+        <property name="user" value="postgres"/>
+        <property name="password" value="postgres"/>
+    </bean>
+
+    <bean id="UserStorageDB" class="by.it_academy.jd2.Mk_JD2_111_25.HW4.storage.UserStorageDB">
+        <constructor-arg name="dataSource" ref="dataSource" />
+    </bean>
+
+    <bean id="MessageStorageDB" class="by.it_academy.jd2.Mk_JD2_111_25.HW4.storage.MessageStorageDB">
+        <constructor-arg name="dataSource" ref="dataSource" />
+    </bean>
+
+    <bean id="UserService" class="by.it_academy.jd2.Mk_JD2_111_25.HW4.service.UserService">
+        <constructor-arg name="storage" ref="UserStorageDB"/>
+    </bean>
+
+    <bean id="MessageService" class="by.it_academy.jd2.Mk_JD2_111_25.HW4.service.MessageService">
+        <constructor-arg name="storage" ref="MessageStorageDB"/>
+    </bean>
+
+
+</beans>

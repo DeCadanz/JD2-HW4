@@ -1,9 +1,11 @@
 package by.it_academy.jd2.Mk_JD2_111_25.HW4.service.api;
-import by.it_academy.jd2.Mk_JD2_111_25.HW4.dto.User;
-
-import java.sql.SQLException;
+import by.it_academy.jd2.Mk_JD2_111_25.HW4.core.dto.User;
 
 public interface IUserService {
-    String add(User user) throws Exception;
-    String authenticate(String login, String password) throws Exception;
+    String add(User user);
+    String authenticate(String login, String password);
+    String getLogin(User user);
+    User getUser(String login);
+    String check(String login);
+    int getCount();
 }

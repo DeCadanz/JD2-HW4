@@ -17,7 +17,5 @@ public class UIServlet extends HttpServlet {
         } else {
             resp.sendRedirect(req.getContextPath().concat("/ui/user/chats"));
         }
-
-
     }
 }

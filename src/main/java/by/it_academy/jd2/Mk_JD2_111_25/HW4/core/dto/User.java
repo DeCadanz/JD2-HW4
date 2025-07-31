@@ -1,4 +1,4 @@
-package by.it_academy.jd2.Mk_JD2_111_25.HW4.dto;
+package by.it_academy.jd2.Mk_JD2_111_25.HW4.core.dto;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

@@ -1,6 +1,6 @@
 package by.it_academy.jd2.Mk_JD2_111_25.HW4.controller.filter;
 
-import by.it_academy.jd2.Mk_JD2_111_25.HW4.dto.User;
+import by.it_academy.jd2.Mk_JD2_111_25.HW4.core.dto.User;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
