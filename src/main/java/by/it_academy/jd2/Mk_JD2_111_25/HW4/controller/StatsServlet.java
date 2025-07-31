@@ -20,7 +20,6 @@ public class StatsServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-
         req.setAttribute("sessions", ActiveUserListener.getActiveSessions());
         req.setAttribute("messages", mService.getCount());
         req.setAttribute("users", uService.getCount());

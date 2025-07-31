@@ -14,10 +14,6 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
-import java.util.List;
-
-import static java.time.LocalDateTime.now;
-
 
 @WebServlet(urlPatterns = {"/api/message", "/ui/user/chats"})
 public class MessageServlet extends HttpServlet {
@@ -30,21 +26,17 @@ public class MessageServlet extends HttpServlet {
 
         HttpSession session = req.getSession();
         User user = (User) session.getAttribute("user");
-        String sender = user.getLogin();
-
         String recipient = req.getParameter("recipient");
-        String text = req.getParameter("text");
-
-        LocalDateTime sendingTime = now();
 
         if (uService.check(recipient) == "") {
-            Message message = new Message();
-            message.setSender(sender);
-            message.setRecipient(recipient);
-            message.setText(text);
-            message.setSendingTime(sendingTime);
 
-            mService.send(message);
+            mService.send(Message.builder()
+                    .sendingTime(LocalDateTime.now())
+                    .sender(user.getLogin())
+                    .recipient(req.getParameter("recipient"))
+                    .text(req.getParameter("text"))
+                    .build());
+
             req.setAttribute("error", "Успешно отправлено!");
             req.getRequestDispatcher("/WEB-INF/ui/sendmessage.jsp").forward(req, resp);
         } else {
@@ -57,12 +49,9 @@ public class MessageServlet extends HttpServlet {
 
         HttpSession session = req.getSession();
         User user = (User) session.getAttribute("user");
-        List<Message> mList = null;
-
-        mList = mService.getAll(user);
 
         req.setAttribute("user", user.getLogin());
-        req.setAttribute("mList", mList);
+        req.setAttribute("mList", mService.getAll(user));
         req.getRequestDispatcher("/WEB-INF/ui/messages.jsp").forward(req, resp);
     }
 }

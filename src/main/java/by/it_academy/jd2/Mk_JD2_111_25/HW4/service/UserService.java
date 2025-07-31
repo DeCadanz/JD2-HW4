@@ -1,22 +1,25 @@
 package by.it_academy.jd2.Mk_JD2_111_25.HW4.service;
 
+import by.it_academy.jd2.Mk_JD2_111_25.HW4.core.ContextFactory;
 import by.it_academy.jd2.Mk_JD2_111_25.HW4.core.dto.User;
 import by.it_academy.jd2.Mk_JD2_111_25.HW4.service.api.IUserService;
 import by.it_academy.jd2.Mk_JD2_111_25.HW4.storage.api.IUserStorage;
+
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
 
 
 public class UserService implements IUserService {
+
     private final IUserStorage storage;
 
-    public UserService(IUserStorage storage){
+    public UserService(IUserStorage storage) {
         this.storage = storage;
     }
 
     @Override
-    public String add(User user){
+    public String add(User user) {
         if (storage.get(user.getLogin()) == null) {
             storage.add(user);
             return "";
@@ -41,11 +44,6 @@ public class UserService implements IUserService {
         } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    @Override
-    public String getLogin(User user) {
-        return "";
     }
 
     @Override

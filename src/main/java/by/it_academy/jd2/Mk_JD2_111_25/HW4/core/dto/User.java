@@ -53,7 +53,7 @@ public class User {
         private String password;
         private String fullName;
         private LocalDate birthDate;
-        private LocalDateTime regDate = LocalDateTime.now();
+        private LocalDateTime regDate;
         private int role_id;
 
         public Builder login(String login) {
@@ -80,6 +80,7 @@ public class User {
             this.regDate = regDate;
             return this;
         }
+
         public Builder role_id(int role_id) {
             this.role_id = role_id;
             return this;

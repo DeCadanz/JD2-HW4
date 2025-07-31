@@ -71,6 +71,11 @@ public class UserStorageDB implements IUserStorage {
     }
 
     @Override
+    public String getLogin(User user) {
+        return "";
+    }
+
+    @Override
     public int getCount() {
         try {
             Connection conn = dataSource.getConnection();

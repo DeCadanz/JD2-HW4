@@ -59,12 +59,12 @@ public class MessageStorageDB implements IMessageStorage {
             statement.setString(1, user.getLogin());
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                Message message = new Message();
-                message.setSendingTime(resultSet.getObject("msg_date", LocalDateTime.class));
-                message.setText(resultSet.getString("msg_text"));
-                message.setSender(resultSet.getString("sender_id"));
-                message.setRecipient(resultSet.getString("recipient_id"));
-                mList.add(message);
+                mList.add(Message.builder()
+                        .sendingTime(resultSet.getObject("msg_date", LocalDateTime.class))
+                        .sender(resultSet.getString("sender_id"))
+                        .recipient(resultSet.getString("recipient_id"))
+                        .text(resultSet.getString("msg_text"))
+                        .build());
             }
             return mList;
         } catch (Exception e) {
