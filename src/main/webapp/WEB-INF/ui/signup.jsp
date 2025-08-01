@@ -11,17 +11,17 @@
 </head>
 <body>
 <b><a href="${pageContext.request.contextPath}/ui/signIn">Вход</a></b>
-·
+<b> · </b>
 <b>Регистрация</b>
 <form action="${pageContext.request.contextPath}/api/user" method="POST">
     <p><b>Логин:</b></p>
-    <input  type="text"  id="login"  name="login"  required  size="16" />
+    <input  type="text"  id="login"  name="login"  required  size="20" />
      <p><b>Пароль:</b></p>
-    <input  type="password"  id="password"  name="password"  required  size="16" />
+    <input  type="password"  id="password"  name="password"  required  size="20" placeholder="Не менее 8 символов"/>
      <p><b>ФИО:</b></p>
-    <input  type="text"  id="fullname"  name="fullname"  required  size="16" placeholder="Пупкин А.А."/>
+    <input  type="text"  id="fullname"  name="fullname"  required  size="20" placeholder="Пупкин А.А."/>
      <p><b>Дата рождения:</b></p>
-    <input  type="text"  id="birth"  name="birth"  required  size="16" placeholder="1990-01-27" pattern="^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$"/>
+    <input  type="text"  id="birth"  name="birth"  required  size="20" placeholder="1990-01-27" pattern="^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$"/>
     
     <p><input type="submit" value="Зарегистрироваться" /></p>
     <p><span style='color: red; font-size: 12px;'><b>${error}</p>

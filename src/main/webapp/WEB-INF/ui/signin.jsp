@@ -11,13 +11,13 @@
 </head>
 <body>
 <b>Вход</b>
-·
+<b> · </b>
 <b><a href="${pageContext.request.contextPath}/ui/signUp">Регистрация</a></b>
 <form action="${pageContext.request.contextPath}/api/login" method="POST">
     <p><b>Логин:</b></p>
-    <input  type="text"  id="login"  name="login"  required  size="16" />
+    <input  type="text"  id="login"  name="login"  required  size="20" />
     <p><b>Пароль:</b></p>
-    <input  type="password"  id="password"  name="password"  required  size="16" />
+    <input  type="password"  id="password"  name="password"  required  size="20" />
 
     <p><input type="submit" value="Войти" /></p>
     

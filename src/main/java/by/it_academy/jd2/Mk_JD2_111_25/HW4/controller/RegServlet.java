@@ -19,7 +19,6 @@ import java.time.LocalDateTime;
 public class RegServlet extends HttpServlet {
 
     private final IUserService service = ContextFactory.getBean(IUserService.class);
-    final int ROLE_ID = 3;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
@@ -27,11 +26,9 @@ public class RegServlet extends HttpServlet {
 
         String error = service.add(User.builder()
                 .login(req.getParameter("login"))
-                .password(crypto.doCrypt(req.getParameter("password")))
+                .password(req.getParameter("password"))
                 .fullName(req.getParameter("fullname"))
                 .birthDate(LocalDate.parse(req.getParameter("birth")))
-                .regDate(LocalDateTime.now())
-                .role_id(ROLE_ID)
                 .build());
 
         if (error != "") {
